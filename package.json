@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/sandeepmistry/node-core-bluetooth",
   "dependencies": {
-    "NodObjC": "^1.0.0"
+    "NodObjC": "^1.0.0",
+    "ffi": "^2.0.0"
   }
 }
