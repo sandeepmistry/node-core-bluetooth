@@ -40,8 +40,32 @@ centralManager.on('peripheralDiscover', function(peripheral, advertisementData, 
     peripheral.once('rssiUpdate', function(rssi, error) {
       console.log('\tperipheral rssiUpdate =>', rssi, error);
 
-      console.log('cancelConnection');
-      peripheral.cancelConnection();
+      console.log('discoverServices');
+      peripheral.discoverServices();
+    });
+
+    peripheral.on('servicesDiscover', function(services, error) {
+      console.log('\tperipheral servicesDiscover =>', services.toString(), error);
+
+      var service = services[0];
+
+      console.log('discoverIncludedServices');
+      service.discoverIncludedServices();
+
+      service.on('includedServicesDiscover', function(includedServices, error) {
+        console.log('\tservice includedServicesDiscover =>', includedServices.toString(), error);
+
+        console.log('discoverCharacteristics');
+        service.discoverCharacteristics();
+      });
+
+
+      service.on('characteristicsDiscover', function(characteristics, error) {
+        console.log('\tservice characteristicsDiscover =>', characteristics.toString(), error);
+
+        console.log('cancelConnection');
+        peripheral.cancelConnection();
+      });
     });
   }
 });
