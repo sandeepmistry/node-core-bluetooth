@@ -11,7 +11,7 @@ centralManager.on('stateUpdate', function(state) {
 centralManager.on('peripheralDiscover', function(peripheral, advertisementData, rssi) {
   console.log('\tperipheralDiscover => ', peripheral.identifier, JSON.stringify(advertisementData), rssi);
 
-  if (advertisementData.localName == 'CC2650 SensorTag') {
+  if (advertisementData.localName == 'test') {
     console.log('stopScan');
     centralManager.stopScan();
 
@@ -63,8 +63,16 @@ centralManager.on('peripheralDiscover', function(peripheral, advertisementData, 
       service.on('characteristicsDiscover', function(characteristics, error) {
         console.log('\tservice characteristicsDiscover =>', characteristics.toString(), error);
 
-        console.log('cancelConnection');
-        peripheral.cancelConnection();
+        var characteristic = characteristics[0];
+
+        console.log('discoverDescriptors');
+        characteristic.discoverDescriptors();
+        characteristic.on('descriptorsDiscover', function(descriptors, error) {
+          console.log('\tcharacteristic descriptorsDiscover =>', descriptors.toString(), error);
+
+          console.log('cancelConnection');
+          peripheral.cancelConnection();
+        });
       });
     });
   }
