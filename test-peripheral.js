@@ -40,6 +40,20 @@ peripheralManager.on('advertisingStart', function(error) {
         null,
         0x01,
         []
+      ),
+      new MutableCharacteristic(
+        'FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFF3',
+        ['write'],
+        null,
+        0x02,
+        []
+      ),
+      new MutableCharacteristic(
+        'FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFF4',
+        ['writeWithoutResponse'],
+        null,
+        0x02,
+        []
       )
     ]
   );
