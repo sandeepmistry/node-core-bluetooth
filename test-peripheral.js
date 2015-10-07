@@ -54,6 +54,13 @@ peripheralManager.on('advertisingStart', function(error) {
         null,
         0x02,
         []
+      ),
+      new MutableCharacteristic(
+        'FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFF4',
+        ['notify'],
+        null,
+        0x01,
+        []
       )
     ]
   );
