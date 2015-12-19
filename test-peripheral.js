@@ -73,6 +73,10 @@ peripheralManager.on('serviceAdded', function(service, error) {
   console.log('\tserviceAdded =>', JSON.stringify(service, null, 2), error);
 });
 
+peripheralManager.on('accept', function(centralIdentifier, address) {
+  console.log('accept => ', centralIdentifier, address);
+});
+
 peripheralManager.on('mtuChange', function(mtu) {
   console.log('mtuChange => ', mtu);
 });

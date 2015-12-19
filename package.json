@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/sandeepmistry/node-core-bluetooth",
   "dependencies": {
+    "bplist-parser": "^0.1.1",
     "debug": "^2.2.0",
     "ffi": "^2.0.0",
     "nodobjc": "^2.1.0",
