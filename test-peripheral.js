@@ -72,3 +72,7 @@ peripheralManager.on('advertisingStart', function(error) {
 peripheralManager.on('serviceAdded', function(service, error) {
   console.log('\tserviceAdded =>', JSON.stringify(service, null, 2), error);
 });
+
+peripheralManager.on('mtuChange', function(mtu) {
+  console.log('mtuChange => ', mtu);
+});
