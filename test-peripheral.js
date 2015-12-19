@@ -7,6 +7,10 @@ var MutableDescriptor     = CoreBluetooth.MutableDescriptor;
 
 var peripheralManager = new PeripheralManager();
 
+peripheralManager.on('address', function(address) {
+  console.log('\taddress => ', address);
+});
+
 peripheralManager.on('stateUpdate', function(state) {
   console.log('\tstateUpdate => ', state);
 
@@ -74,9 +78,9 @@ peripheralManager.on('serviceAdded', function(service, error) {
 });
 
 peripheralManager.on('accept', function(centralIdentifier, address) {
-  console.log('accept => ', centralIdentifier, address);
+  console.log('\taccept => ', centralIdentifier, address);
 });
 
 peripheralManager.on('mtuChange', function(mtu) {
-  console.log('mtuChange => ', mtu);
+  console.log('\tmtuChange => ', mtu);
 });
