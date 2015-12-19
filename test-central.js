@@ -87,19 +87,19 @@ centralManager.on('peripheralDiscover', function(peripheral, advertisementData, 
             // });
           }
 
-          if (characteristic.properties.indexOf('read') !== -1) {
+          if (characteristic.properties & 0x02) {
             console.log('characteristic - readValue');
             characteristic.readValue();
-          } else if (characteristic.properties.indexOf('write') !== -1) {
+          } else if (characteristic.properties & 0x08) {
             console.log('characteristic - writeValue');
             characteristic.writeValue(new Buffer('hello'));
-          } else if (characteristic.properties.indexOf('writeWithoutResponse') !== -1) {
+          } else if (characteristic.properties & 0x04) {
             console.log('characteristic - writeValue');
             characteristic.writeValue(new Buffer('hello'), true);
-          } else if (characteristic.properties.indexOf('broadcast') !== -1) {
+          } else if (characteristic.properties & 0x01) {
             console.log('characteristic - setBroadcastValue');
             characteristic.setBroadcastValue(true);
-          } else if (characteristic.properties.indexOf('notify') !== -1 || characteristic.properties.indexOf('indicate') !== -1) {
+          } else if (characteristic.properties & (0x10 | 0x20)) {
             console.log('characteristic - setNotifyValue');
             characteristic.setNotifyValue(true);
           }

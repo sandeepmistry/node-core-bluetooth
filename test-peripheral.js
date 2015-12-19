@@ -31,7 +31,7 @@ peripheralManager.on('advertisingStart', function(error) {
     [
       new MutableCharacteristic(
         'FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFF1',
-        ['read'],
+        0x02,
         new Buffer('static value'),
         0x01,
         [
@@ -40,28 +40,28 @@ peripheralManager.on('advertisingStart', function(error) {
       ),
       new MutableCharacteristic(
         'FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFF2',
-        ['read'],
+        0x02,
         null,
         0x01,
         []
       ),
       new MutableCharacteristic(
         'FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFF3',
-        ['write'],
+        0x08,
         null,
         0x02,
         []
       ),
       new MutableCharacteristic(
         'FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFF4',
-        ['writeWithoutResponse'],
+        0x04,
         null,
         0x02,
         []
       ),
       new MutableCharacteristic(
         'FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFF4',
-        ['notify'],
+        0x10,
         null,
         0x01,
         []
