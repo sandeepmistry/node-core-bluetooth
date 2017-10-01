@@ -25,8 +25,7 @@
   "dependencies": {
     "bplist-parser": "^0.1.1",
     "debug": "^2.2.0",
-    "ffi": "^2.0.0",
-    "nodobjc": "^2.1.0",
+    "objective-c-runtime": "sandeepmistry/node-objective-c-runtime",
     "re-emitter": "^1.1.1",
     "uuid": "^2.0.1"
   },
